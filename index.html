@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Vault — Mã hóa code siêu mạnh</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="logo">CV</div>
+        <div>
+          <h1>Code Vault</h1>
+          <p class="sub">Mã hóa · Obfuscate · Junk code · Nhiều ngôn ngữ</p>
+        </div>
+      </div>
+      <span class="badge">Client-side · Free</span>
+    </header>
+
+    <div class="layout">
+      <aside class="panel">
+        <h3>Loại code</h3>
+        <div class="lang-grid" id="langGrid"></div>
+
+        <h3>Phương thức</h3>
+        <select id="method"></select>
+
+        <h3>Tùy chọn</h3>
+        <label class="chk"><input type="checkbox" id="optJunk" checked> Chèn junk code</label>
+        <label class="chk"><input type="checkbox" id="optLayers" checked> Nhiều lớp mã hóa</label>
+        <label class="chk"><input type="checkbox" id="optMinify"> Nén / bỏ khoảng trắng</label>
+        <label class="row">
+          <span>Junk level</span>
+          <input type="range" id="junkLevel" min="1" max="5" value="3" />
+          <span id="junkVal">3</span>
+        </label>
+        <label class="row">
+          <span>Khóa XOR (tuỳ chọn)</span>
+          <input type="text" id="xorKey" placeholder="secret" />
+        </label>
+
+        <button type="button" class="btn btn-w" id="btnRun">⚡ Mã hóa</button>
+        <button type="button" class="btn btn-g" id="btnDecode">🔓 Thử giải (base64/xor)</button>
+        <button type="button" class="btn btn-g" id="btnCopy">Copy kết quả</button>
+        <button type="button" class="btn btn-g" id="btnDl">Tải file</button>
+        <p class="note" id="status">Chọn loại code → dán source → Mã hóa</p>
+      </aside>
+
+      <main class="main">
+        <div class="editor-card">
+          <div class="ed-head">
+            <span>INPUT</span>
+            <button type="button" class="link" id="btnClear">Xóa</button>
+          </div>
+          <textarea id="input" placeholder="Dán code cần mã hóa vào đây…" spellcheck="false"></textarea>
+        </div>
+        <div class="editor-card">
+          <div class="ed-head">
+            <span>OUTPUT</span>
+            <span id="outMeta" class="meta"></span>
+          </div>
+          <textarea id="output" placeholder="Kết quả mã hóa…" spellcheck="false" readonly></textarea>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/obfuscators.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

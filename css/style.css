@@ -1,0 +1,140 @@
+:root {
+  --bg: #050505;
+  --panel: #0c0c0c;
+  --border: #2a2a2a;
+  --text: #f2f2f2;
+  --muted: #888;
+  --soft: #bbb;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+.bg-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 75%);
+}
+.shell {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto; padding: 22px 14px 50px;
+}
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 20px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: #fff; color: #000;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  box-shadow: 0 0 24px rgba(255,255,255,.12);
+}
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 700;
+}
+.sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+.badge {
+  font-size: 0.7rem; padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--muted);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 14px;
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  height: fit-content;
+}
+.panel h3 {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); margin: 14px 0 8px; font-weight: 600;
+}
+.panel h3:first-child { margin-top: 0; }
+.lang-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.lang-btn {
+  padding: 9px 8px; border-radius: 10px;
+  border: 1px solid var(--border); background: #080808;
+  color: var(--soft); font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: 0.15s;
+}
+.lang-btn:hover { border-color: #444; }
+.lang-btn.on {
+  background: #fff; color: #000; border-color: #fff;
+}
+select, input[type="text"] {
+  width: 100%; padding: 10px 12px;
+  background: #080808; border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text);
+  font-size: 0.85rem; font-family: inherit; outline: none;
+  margin-bottom: 4px;
+}
+select:focus, input:focus { border-color: #555; }
+.chk {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: var(--muted);
+  margin-bottom: 8px; cursor: pointer;
+}
+.chk input { accent-color: #fff; }
+.row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; color: var(--muted); margin-bottom: 10px;
+}
+.row span:first-child { min-width: 90px; }
+.row input[type="range"] { flex: 1; accent-color: #fff; }
+.btn {
+  width: 100%; padding: 11px; border-radius: 11px;
+  font-weight: 650; font-size: 0.88rem; border: none;
+  cursor: pointer; font-family: inherit; margin-top: 8px; transition: 0.15s;
+}
+.btn-w { background: #fff; color: #000; }
+.btn-w:hover { background: #e8e8e8; }
+.btn-g {
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+}
+.btn-g:hover { background: #141414; }
+.note {
+  margin-top: 12px; font-size: 0.78rem; color: var(--muted); line-height: 1.45;
+}
+.main { display: flex; flex-direction: column; gap: 12px; min-height: 70vh; }
+.editor-card {
+  flex: 1; display: flex; flex-direction: column;
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; min-height: 260px;
+}
+.ed-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  font-size: 0.72rem; letter-spacing: 0.08em; color: var(--muted);
+  font-weight: 600;
+}
+.ed-head .link {
+  background: none; border: none; color: var(--soft);
+  cursor: pointer; font-size: 0.78rem; font-family: inherit;
+}
+.ed-head .meta { font-size: 0.72rem; color: #666; letter-spacing: 0; }
+textarea {
+  flex: 1; width: 100%; border: none; resize: none;
+  background: #080808; color: #e0e0e0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; line-height: 1.55;
+  padding: 14px; outline: none;
+}
